@@ -33,3 +33,21 @@ extension Receipient {
         return Receipient(accountNo: accountNo, accountHolder: accountHolder)
     }
 }
+
+extension LoginRespons {
+    
+    static func with(status: String = "success",
+                     token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTZlNzNlMDYyYWY0ZGQ5YmMyYzYxMWQiLCJ1c2VybmFtZSI6InRlc3QiLCJhY2NvdW50Tm8iOiIyOTcwLTExMS0zNjQ4IiwiaWF0IjoxNjU2NzkyNjE2LCJleHAiOjE2NTY4MDM0MTZ9.eK_flipTtPCrl8113N2hjqjW06RLcFDjaw_XMoWyMw4",
+                     username: String = "test",
+                     accountNo: String = "2970-111-3648") -> LoginRespons {
+        return LoginRespons(status: status, token: token, username: username, accountNo: accountNo)
+        
+    }
+}
+
+extension Login {
+    
+    static func with(username: String = "test", password: String = "asdasd") -> Login {
+        return Login(username: username, password: password)
+    }
+}

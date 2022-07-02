@@ -16,6 +16,10 @@
 		37454D8828708B290090C19D /* TransactionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37454D8728708B290090C19D /* TransactionSection.swift */; };
 		37454D8C2870B1DC0090C19D /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37454D8A2870B1DC0090C19D /* TransactionCell.swift */; };
 		37454D8D2870B1DC0090C19D /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37454D8B2870B1DC0090C19D /* TransactionCell.xib */; };
+		37454D912870CE300090C19D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37454D902870CE300090C19D /* LoginViewModel.swift */; };
+		37454D932870D0890090C19D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37454D922870D0890090C19D /* Request.swift */; };
+		37454D952870D76D0090C19D /* LoginVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37454D942870D76D0090C19D /* LoginVCTests.swift */; };
+		37454D9A2870D8000090C19D /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37454D992870D8000090C19D /* LoginViewModelTests.swift */; };
 		37D97056286F1C3200D9AACF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D97055286F1C3200D9AACF /* AppDelegate.swift */; };
 		37D97058286F1C3200D9AACF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D97057286F1C3200D9AACF /* SceneDelegate.swift */; };
 		37D9705F286F1C3500D9AACF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37D9705E286F1C3500D9AACF /* Assets.xcassets */; };
@@ -69,6 +73,10 @@
 		37454D8728708B290090C19D /* TransactionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSection.swift; sourceTree = "<group>"; };
 		37454D8A2870B1DC0090C19D /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		37454D8B2870B1DC0090C19D /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
+		37454D902870CE300090C19D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		37454D922870D0890090C19D /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		37454D942870D76D0090C19D /* LoginVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCTests.swift; sourceTree = "<group>"; };
+		37454D992870D8000090C19D /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		37D97052286F1C3200D9AACF /* OCBCTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCBCTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D97055286F1C3200D9AACF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37D97057286F1C3200D9AACF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +184,38 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		37454D962870D7D60090C19D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				37E7C43B287067BC00FD7E30 /* DashboardViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		37454D972870D7E10090C19D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				37454D74287073C40090C19D /* DashboardVCTests.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		37454D982870D7EE0090C19D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				37454D992870D8000090C19D /* LoginViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		37454D9B2870D80F0090C19D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				37454D942870D76D0090C19D /* LoginVCTests.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		37D97049286F1C3200D9AACF = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +313,7 @@
 		37D9708F286F64EF00D9AACF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				37454D902870CE300090C19D /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -297,6 +338,8 @@
 		37D97094286F67EB00D9AACF /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				37454D9B2870D80F0090C19D /* View */,
+				37454D982870D7EE0090C19D /* ViewModel */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -409,6 +452,7 @@
 				37D970B2286F7CBA00D9AACF /* LoginService.swift */,
 				37D970B428703C0800D9AACF /* DashboardService.swift */,
 				37D970B82870458D00D9AACF /* ServerError.swift */,
+				37454D922870D0890090C19D /* Request.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -424,8 +468,8 @@
 		37E7C43A2870679F00FD7E30 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				37E7C43B287067BC00FD7E30 /* DashboardViewModelTests.swift */,
-				37454D74287073C40090C19D /* DashboardVCTests.swift */,
+				37454D972870D7E10090C19D /* View */,
+				37454D962870D7D60090C19D /* ViewModel */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -697,6 +741,8 @@
 				37454D8C2870B1DC0090C19D /* TransactionCell.swift in Sources */,
 				37D9709D286F6C5800D9AACF /* DashboardViewController.swift in Sources */,
 				37D970B92870458D00D9AACF /* ServerError.swift in Sources */,
+				37454D932870D0890090C19D /* Request.swift in Sources */,
+				37454D912870CE300090C19D /* LoginViewModel.swift in Sources */,
 				37454D8828708B290090C19D /* TransactionSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,7 +751,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37454D9A2870D8000090C19D /* LoginViewModelTests.swift in Sources */,
 				37454D80287086F80090C19D /* SpyNavigationController.swift in Sources */,
+				37454D952870D76D0090C19D /* LoginVCTests.swift in Sources */,
 				37E7C43C287067BC00FD7E30 /* DashboardViewModelTests.swift in Sources */,
 				37454D75287073C40090C19D /* DashboardVCTests.swift in Sources */,
 				37D9706D286F1C3500D9AACF /* OCBCTestTests.swift in Sources */,

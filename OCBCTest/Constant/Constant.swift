@@ -18,4 +18,6 @@ struct Constant {
     static let payees = "payess"
     static let transfer = "transfer"
     
+    static let token = "token"
+    
 }

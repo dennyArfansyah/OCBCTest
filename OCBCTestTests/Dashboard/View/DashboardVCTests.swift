@@ -11,13 +11,11 @@ import XCTest
 class DashboardVCTests: XCTestCase {
 
     var vc: DashboardViewController!
-    var viewModel: DashboardViewModel!
 
     override func setUp() {
         super.setUp()
         vc = DashboardViewController()
         vc.loadViewIfNeeded()
-        viewModel = DashboardViewModel(caller: vc)
     }
     
     func test_dashboardViewController_isExist() {
@@ -42,7 +40,6 @@ class DashboardVCTests: XCTestCase {
     
     override func tearDown() {
         vc = nil
-        viewModel = nil
         super.tearDown()
     }
 

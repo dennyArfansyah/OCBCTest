@@ -22,14 +22,7 @@ class DashboardServiceImplementation: DashboardService {
     
     func fetchBalance(completion: @escaping BalanceCompletion) {
         let url = URL(string: Constant.baseUrl + Constant.balance)!
-        
-        let headers: HTTPHeaders = [
-                   .authorization("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTZlNzNlMDYyYWY0ZGQ5YmMyYzYxMWQiLCJ1c2VybmFtZSI6InRlc3QiLCJhY2NvdW50Tm8iOiIyOTcwLTExMS0zNjQ4IiwiaWF0IjoxNjU2NzgyNzc5LCJleHAiOjE2NTY3OTM1Nzl9.PTRS6yy-KgYlrEm6mN36FZT_orWXbxinvcPqzA0NdK8"),
-                   .accept("application/json"),
-                   .contentType("application/json")
-               ]
-        
-        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers, interceptor: nil, requestModifier: nil).responseJSON { response in
+        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: Request.getAuthorizationHeader(), interceptor: nil, requestModifier: nil).responseJSON { response in
 
             print(response)
 
@@ -63,14 +56,7 @@ class DashboardServiceImplementation: DashboardService {
     
     func fetchTransaction(completion: @escaping TransactionsCompletion) {
         let url = URL(string: Constant.baseUrl + Constant.transaction)!
-
-        let headers: HTTPHeaders = [
-                   .authorization("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTZlNzNlMDYyYWY0ZGQ5YmMyYzYxMWQiLCJ1c2VybmFtZSI6InRlc3QiLCJhY2NvdW50Tm8iOiIyOTcwLTExMS0zNjQ4IiwiaWF0IjoxNjU2NzgyNzc5LCJleHAiOjE2NTY3OTM1Nzl9.PTRS6yy-KgYlrEm6mN36FZT_orWXbxinvcPqzA0NdK8"),
-                   .accept("application/json"),
-                   .contentType("application/json")
-               ]
-
-        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers, interceptor: nil, requestModifier: nil).responseJSON { response in
+        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: Request.getAuthorizationHeader(), interceptor: nil, requestModifier: nil).responseJSON { response in
 
             print(response)
             
