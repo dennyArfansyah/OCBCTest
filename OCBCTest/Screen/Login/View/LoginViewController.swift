@@ -19,6 +19,8 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func nextButtonClicked(_ sender: Any) {
-        navigationController?.pushViewController(DashboardViewController(), animated: true)
+        let vc = DashboardViewController()
+        vc.viewModel = DashboardViewModel(caller: vc)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -9,13 +9,15 @@ import UIKit
 
 class TransactionCell: UITableViewCell {
     
-    
     @IBOutlet weak var accountNoLabel: UILabel!
     @IBOutlet weak var accountHolderLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     
+    static let reusedIdentifier = String(describing: TransactionCell.self)
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.layer.cornerRadius = 8
     }
     
     func setData(with transaction: Transaction) {

@@ -12,47 +12,59 @@ class DashboardViewModelTests: XCTestCase {
     
     var vc: DashboardViewController!
     var viewModel: DashboardViewModel!
+    fileprivate var fakeService: MockDashboardService!
     
     override func setUp() {
         super.setUp()
+    
         vc = DashboardViewController()
+        fakeService = MockDashboardService()
+        viewModel = DashboardViewModel(caller: vc, service: fakeService)
+        vc.viewModel = viewModel
         vc.loadViewIfNeeded()
-        viewModel = DashboardViewModel(caller: vc)
     }
 
     func test_getBalanceGetTransactions_returnSuccess() {
-        let service = MockDashboardService()
-        service.fetchBalanceResult = .success(Balance.with())
-        service.fetchTransactionsResult = .success([Transaction.with()])
-
-        let viewModel = DashboardViewModel(caller: vc, service: service)
-        viewModel.getBalance()
-        viewModel.getTransactions()
+        self.fakeService.balance = Balance.with()
+        self.fakeService.transactions = [Transaction.with()]
+        self.viewModel.getBalance()
+        self.viewModel.getTransactions()
     }
 
     func test_getBalanceGetTransactions_returnFailure() {
-        let service = MockDashboardService()
-        service.fetchBalanceResult = .failure(ServerError.invalidCredentials)
-        service.fetchTransactionsResult = .failure(ServerError.invalidCredentials)
-
-        let viewModel = DashboardViewModel(caller: vc, service: service)
-        viewModel.getBalance()
-        viewModel.getTransactions()
+        self.fakeService = nil
+        self.viewModel.getBalance()
+        self.viewModel.getTransactions()
+    }
+    
+    override func tearDown() {
+        self.vc = nil
+        self.viewModel = nil
+        self.fakeService = nil
+        super.tearDown()
     }
 
 }
 
-class MockDashboardService: DashboardServiceImplementation {
+class MockDashboardService: DashboardService {
     
-    var fetchBalanceResult: DashboardServiceImplementation.BalanceResult? = nil
-    var fetchTransactionsResult: DashboardServiceImplementation.TransactionsResult? = nil
+    var balance: Balance?
+    var transactions: [Transaction]?
     
-    override func fetchBalance(completion: @escaping DashboardServiceImplementation.BalanceCompletion) {
-        completion(fetchBalanceResult!)
+    func fetchBalance(completion: @escaping (Result<Balance, ServerError>) -> Void) {
+        if let balance = balance {
+            completion(.success(balance))
+        } else {
+            completion(.failure(ServerError.invalidCredentials))
+        }
     }
     
-    override func fetchTransaction(completion: @escaping DashboardServiceImplementation.TransactionsCompletion) {
-        completion(fetchTransactionsResult!)
+    func fetchTransaction(completion: @escaping (Result<[Transaction], ServerError>) -> Void) {
+        if let transactions = transactions {
+            completion(.success(transactions))
+        } else {
+            completion(.failure(ServerError.invalidCredentials))
+        }
     }
-
+    
 }

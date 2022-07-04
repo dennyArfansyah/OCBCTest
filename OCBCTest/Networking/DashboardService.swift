@@ -17,14 +17,10 @@ protocol DashboardService {
 
 class DashboardServiceImplementation: DashboardService {
     
-    typealias BalanceResult = Result<Balance, ServerError>
-    typealias BalanceCompletion = (_ result: BalanceResult) -> Void
-    
-    func fetchBalance(completion: @escaping BalanceCompletion) {
+    func fetchBalance(completion: @escaping (Result<Balance, ServerError>) -> Void) {
         let url = URL(string: Constant.baseUrl + Constant.balance)!
+        
         AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: Request.getAuthorizationHeader(), interceptor: nil, requestModifier: nil).responseJSON { response in
-
-            print(response)
 
             switch response.result {
             case .success:
@@ -47,18 +43,13 @@ class DashboardServiceImplementation: DashboardService {
                 }
                 completion(.failure(.unknownError))
             }
-
         }
+        
     }
     
-    typealias TransactionsResult = Result<[Transaction], ServerError>
-    typealias TransactionsCompletion = (_ result: TransactionsResult) -> Void
-    
-    func fetchTransaction(completion: @escaping TransactionsCompletion) {
+    func fetchTransaction(completion: @escaping (Result<[Transaction], ServerError>) -> Void) {
         let url = URL(string: Constant.baseUrl + Constant.transaction)!
         AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: Request.getAuthorizationHeader(), interceptor: nil, requestModifier: nil).responseJSON { response in
-
-            print(response)
             
             switch response.result {
             case .success:

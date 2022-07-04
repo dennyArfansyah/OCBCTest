@@ -10,52 +10,31 @@ import UIKit
 class DashboardViewController: UIViewController {
     
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var balanceView: UIView!
+    @IBOutlet weak var transactionHistoryLabel: UILabel!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var accountNoLabel: UILabel!
     @IBOutlet weak var accountHolderLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicatroView: UIActivityIndicatorView!
     
+    private(set) var dataSource: DashboardDatasource!
+    private(set) var delegate: DashboardDelegate!
     var viewModel: DashboardViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
         
-        viewModel = DashboardViewModel(caller: self)
+//        self.dataSource = DashboardDatasource(caller: self, viewModel: viewModel)
+        self.delegate = DashboardDelegate(caller: self, viewModel: viewModel)
         
-        self.tableView.dataSource = self
+        self.tableView.dataSource = dataSource
+        self.tableView.delegate = delegate
+        self.tableView.separatorStyle = .none
         self.tableView.rowHeight = UITableView.automaticDimension
-        self.tableView.register(UINib(nibName: String(describing: TransactionCell.self), bundle: nil), forCellReuseIdentifier: String(describing: TransactionCell.self))
-    }
-    
-}
-
-extension DashboardViewController: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.sections.count
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let section = self.viewModel.sections[section]
-        let date = section.date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM yyyy"
-        return dateFormatter.string(from: date)
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let section = viewModel.sections[section]
-        return section.transactions.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TransactionCell.self), for: indexPath) as! TransactionCell
-        let section = viewModel.sections[indexPath.section]
-        let transaction = section.transactions[indexPath.row]
-        cell.setData(with: transaction)
-
-        return cell
+        self.tableView.sectionFooterHeight = 8
+        self.tableView.sectionHeaderHeight = 50
     }
     
 }

@@ -14,7 +14,12 @@ class DashboardVCTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
+        
         vc = DashboardViewController()
+        let fakeWishlistService = MockDashboardService()
+        fakeWishlistService.transactions = [Transaction.with()]
+        let viewModel = DashboardViewModel(caller: vc, service: fakeWishlistService)
+        vc.viewModel = viewModel
         vc.loadViewIfNeeded()
     }
     

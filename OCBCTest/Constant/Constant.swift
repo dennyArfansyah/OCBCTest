@@ -19,5 +19,24 @@ struct Constant {
     static let transfer = "transfer"
     
     static let token = "token"
+    static let transactionHeaderDateFormat = "dd MMM yyyy"
+    static let isoFormatDate = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+    
+    static func getDay(dateString: String) -> Date {
+        let inputDateFormatter = DateFormatter()
+        inputDateFormatter.dateFormat = isoFormatDate
+        let date = inputDateFormatter.date(from: dateString)
+        
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day], from: date ?? Date())
+        return calendar.date(from: components)!
+    }
+    
+    static func getHeaderTitle(with section: TransactionSection) -> String {
+        let date = section.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = transactionHeaderDateFormat
+        return dateFormatter.string(from: date)
+    }
     
 }
