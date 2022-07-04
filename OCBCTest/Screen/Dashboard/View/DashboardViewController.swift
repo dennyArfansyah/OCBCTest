@@ -26,7 +26,7 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
         
-//        self.dataSource = DashboardDatasource(caller: self, viewModel: viewModel)
+        self.dataSource = DashboardDatasource(caller: self, viewModel: viewModel)
         self.delegate = DashboardDelegate(caller: self, viewModel: viewModel)
         
         self.tableView.dataSource = dataSource

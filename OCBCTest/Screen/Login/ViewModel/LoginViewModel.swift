@@ -6,16 +6,34 @@
 //
 
 import Foundation
+import Toast_Swift
 
 class LoginViewModel {
     
     private(set) var caller: LoginViewController
-    var service: LoginServiceImplementation
-    var errorMessage: String!
+    var service: LoginService
     
-    init(caller: LoginViewController, service: LoginServiceImplementation = LoginServiceImplementation()) {
+    init(caller: LoginViewController, service: LoginService = LoginServiceImplementation()) {
         self.caller = caller
         self.service = service
+    }
+    
+    func loginValidation() {
+        let username = self.caller.usernameTextField.text ?? ""
+        let password = self.caller.passwordTextField.text ?? ""
+        if username.isEmpty || username.count < 4 {
+            self.caller.usernameTextField.isErrorRevealed = true
+            self.caller.usernameTextField.errorLabel.text = Constant.usernameRequired
+            return
+        }
+        
+        if password.isEmpty || password.count < 4 {
+            self.caller.passwordTextField.isErrorRevealed = true
+            self.caller.passwordTextField.errorLabel.text = Constant.passwordRequired
+            return
+        }
+        
+        doLogin(with: Login(username: username, password: password))
     }
     
     func doLogin(with data: Login) {
@@ -25,14 +43,25 @@ class LoginViewModel {
                 print(loginResponse)
                 self?.set(with: loginResponse)
             case .failure(let error):
-                print(error.localizedDescription)
-                self?.errorMessage = error.localizedDescription
+                self?.showToast(with: error.localizedDescription)
             }
         })
     }
     
     func set(with loginResponse: LoginRespons) {
-        caller.navigationController?.pushViewController(DashboardViewController(), animated: true)
+        self.caller.usernameTextField.text = ""
+        self.caller.usernameTextField.isErrorRevealed = false
+        self.caller.usernameTextField.errorLabel.text = ""
+        self.caller.passwordTextField.text = ""
+        self.caller.passwordTextField.errorLabel.text = ""
+        self.caller.passwordTextField.isErrorRevealed = false
+        let vc = DashboardViewController()
+        vc.viewModel = DashboardViewModel(caller: vc)
+        self.caller.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showToast(with errorMessage: String) {
+        self.caller.view.makeToast(errorMessage)
     }
     
 }

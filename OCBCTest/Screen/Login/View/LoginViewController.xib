@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="OCBCTest" customModuleProvider="target">
             <connections>
+                <outlet property="loginButton" destination="lft-fg-sKO" id="kZy-4F-5Iu"/>
+                <outlet property="materialInputView" destination="dTD-lB-q65" id="fWi-Rw-TUQ"/>
+                <outlet property="registerButton" destination="GOw-pX-9Cm" id="8Z8-fj-mqf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,26 +27,81 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dtz-5R-iGJ">
-                    <rect key="frame" x="153" y="759" width="67" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dTD-lB-q65">
+                    <rect key="frame" x="16" y="174" width="382" height="200"/>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="qmg-GS-zgY"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lft-fg-sKO">
+                    <rect key="frame" x="32" y="422" width="350" height="50"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="yyC-Ei-2Kn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="NotoSansOriya-Bold" family="Noto Sans Oriya" pointSize="20"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Login">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="nextButtonClicked:" destination="-1" eventType="touchUpInside" id="XbI-0o-Xdm"/>
+                        <action selector="loginButtonPressed:" destination="-1" eventType="touchUpInside" id="jue-WQ-g4c"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOw-pX-9Cm">
+                    <rect key="frame" x="32" y="488" width="350" height="50"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="VA9-7x-dC3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="NotoSansOriya-Bold" family="Noto Sans Oriya" pointSize="20"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Register">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="registerButtonPressed:" destination="-1" eventType="touchUpInside" id="hf1-4b-Oj9"/>
                     </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lft-fg-sKO" secondAttribute="trailing" constant="32" id="0JZ-LC-qMQ"/>
+                <constraint firstItem="GOw-pX-9Cm" firstAttribute="top" secondItem="lft-fg-sKO" secondAttribute="bottom" constant="16" id="F7p-qO-6TM"/>
+                <constraint firstItem="GOw-pX-9Cm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="Pfz-2t-ZoO"/>
+                <constraint firstItem="dTD-lB-q65" firstAttribute="top" secondItem="R2E-zu-hGN" secondAttribute="bottom" constant="32" id="RlT-Rw-EYn"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dTD-lB-q65" secondAttribute="trailing" constant="16" id="aVK-cU-fhb"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GOw-pX-9Cm" secondAttribute="trailing" constant="32" id="aZh-jA-UfE"/>
+                <constraint firstItem="lft-fg-sKO" firstAttribute="top" secondItem="dTD-lB-q65" secondAttribute="bottom" constant="48" id="dG8-r7-Ssh"/>
                 <constraint firstItem="R2E-zu-hGN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="fbi-9N-NsD"/>
+                <constraint firstItem="dTD-lB-q65" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="lsb-Jt-Eza"/>
+                <constraint firstItem="lft-fg-sKO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="te0-C8-SoS"/>
                 <constraint firstItem="R2E-zu-hGN" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="64" id="vfU-cc-730"/>
             </constraints>
             <point key="canvasLocation" x="-374" y="126"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

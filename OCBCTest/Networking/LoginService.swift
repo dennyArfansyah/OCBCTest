@@ -20,10 +20,6 @@ class LoginServiceImplementation: LoginService {
     typealias LoginCompletion = (_ result: LoginResult) -> Void
     
     func doLogin(with param: Login, completion: @escaping LoginCompletion) {
-        
-//        guard let encoded = try? JSONEncoder().encode(param) else { return }
-//        let parameters = Request.setParams(data: encoded)
-        
         let params = ["username": param.username,
                       "password": param.password]
         
