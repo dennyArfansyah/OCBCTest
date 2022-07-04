@@ -68,7 +68,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        viewModel.loginValidation()
+        viewModel.loginValidation(username: usernameTextField.text ?? "", password: passwordTextField.text ?? "")
     }
     
     @IBAction func registerButtonPressed(_ sender: Any) {

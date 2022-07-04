@@ -16,10 +16,8 @@ protocol LoginService {
 
 class LoginServiceImplementation: LoginService {
     
-    typealias LoginResult = Result<LoginRespons, ServerError>
-    typealias LoginCompletion = (_ result: LoginResult) -> Void
-    
-    func doLogin(with param: Login, completion: @escaping LoginCompletion) {
+    func doLogin(with param: Login, completion: @escaping (Result<LoginRespons, ServerError>) -> Void) {
+        
         let params = ["username": param.username,
                       "password": param.password]
         

@@ -12,7 +12,7 @@ class DashboardViewModelTests: XCTestCase {
     
     var vc: DashboardViewController!
     var viewModel: DashboardViewModel!
-    fileprivate var fakeService: MockDashboardService!
+    var fakeService: MockDashboardService!
     
     override func setUp() {
         super.setUp()

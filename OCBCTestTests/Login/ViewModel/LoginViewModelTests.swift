@@ -12,39 +12,56 @@ class LoginViewModelTests: XCTestCase {
 
     var vc: LoginViewController!
     var viewModel: LoginViewModel!
+    var fakeService: MockLoginService!
     
     override func setUp() {
         super.setUp()
         vc = LoginViewController()
+        fakeService = MockLoginService()
+        viewModel = LoginViewModel(caller: vc, service: fakeService)
         vc.loadViewIfNeeded()
-        viewModel = LoginViewModel(caller: vc)
+    }
+    
+    func test_usernameIsEmpty_shouldShowError() {
+        viewModel.loginValidation(username: "", password: "12313")
+        XCTAssertEqual(self.vc.usernameTextField.errorLabel.text, Constant.usernameRequired)
+    }
+    
+    func test_passwordIsEmpty_shouldShowError() {
+        viewModel.loginValidation(username: "qweqwe", password: "")
+        XCTAssertEqual(self.vc.passwordTextField.errorLabel.text, Constant.passwordRequired)
     }
     
     func test_postLogin_returnSuccess() {
-        let service = MockLoginService()
-        service.doLoginResult = .success(LoginRespons.with())
-        
-        let viewModel = LoginViewModel(caller: vc, service: service)
+        fakeService.loginResponse = LoginRespons.with()
         let mockLogin = Login.with()
-        viewModel.doLogin(with: Login(username: mockLogin.username, password: mockLogin.password))
+        viewModel.loginValidation(username: mockLogin.username, password: mockLogin.password)
     }
     
     func test_postLogin_returnFailure() {
-        let service = MockLoginService()
-        service.doLoginResult = .failure(ServerError.unknownError)
-        
-        let viewModel = LoginViewModel(caller: vc, service: service)
+        fakeService = nil
         viewModel.doLogin(with: Login(username: "test", password: "asd"))
+    }
+    
+    override func tearDown() {
+        self.vc = nil
+        self.fakeService = nil
+        self.viewModel = nil
+        super.tearDown()
     }
 
 }
 
-class MockLoginService: LoginServiceImplementation {
+class MockLoginService: LoginService {
     
-    var doLoginResult: LoginServiceImplementation.LoginResult? = nil
+    var loginResponse: LoginRespons?
     
-    override func doLogin(with param: Login, completion: @escaping LoginServiceImplementation.LoginCompletion) {
-        completion(doLoginResult!)
+    func doLogin(with param: Login, completion: @escaping (Result<LoginRespons, ServerError>) -> Void) {
+        if let loginResponse = loginResponse {
+            completion(.success(loginResponse))
+        } else {
+            completion(.failure(ServerError.unknownError))
+        }
     }
 
 }

@@ -18,9 +18,7 @@ class LoginViewModel {
         self.service = service
     }
     
-    func loginValidation() {
-        let username = self.caller.usernameTextField.text ?? ""
-        let password = self.caller.passwordTextField.text ?? ""
+    func loginValidation(username: String, password: String) {
         if username.isEmpty || username.count < 4 {
             self.caller.usernameTextField.isErrorRevealed = true
             self.caller.usernameTextField.errorLabel.text = Constant.usernameRequired
