@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
         field.placeholder = Constant.username
         field.errorColor = .red
         field.isErrorRevealed = false
-//        field.delegate = self
+        field.delegate = self
         field.translatesAutoresizingMaskIntoConstraints = false
         field.dividerColor = .lightGray
         field.dividerActiveColor = .black
@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
         field.placeholder = Constant.password
         field.errorColor = .red
         field.isErrorRevealed = false
-//        field.delegate = self
+        field.delegate = self
         field.translatesAutoresizingMaskIntoConstraints = false
         field.dividerColor = .lightGray
         field.dividerActiveColor = .black
@@ -77,19 +77,19 @@ extension LoginViewController {
     
 }
 
-//extension LoginViewController: TextFieldDelegate {
-//
-//    public func textFieldDidEndEditing(_ textField: UITextField) {
-//        (textField as? ErrorTextField)?.isErrorRevealed = false
-//    }
-//
-//    public func textFieldShouldClear(_ textField: UITextField) -> Bool {
-//        (textField as? ErrorTextField)?.isErrorRevealed = false
-//        return true
-//    }
-//
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        (textField as? ErrorTextField)?.isErrorRevealed = true
-//        return true
-//    }
-//}
+extension LoginViewController: TextFieldDelegate {
+
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+        (textField as? ErrorTextField)?.isErrorRevealed = false
+    }
+
+    public func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        (textField as? ErrorTextField)?.isErrorRevealed = false
+        return true
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        (textField as? ErrorTextField)?.isErrorRevealed = true
+        return true
+    }
+}

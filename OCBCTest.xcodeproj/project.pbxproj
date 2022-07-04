@@ -10,6 +10,7 @@
 		3714F83B2872BA9E00A8C464 /* DashboardDatasourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3714F83A2872BA9E00A8C464 /* DashboardDatasourceTests.swift */; };
 		3714F83D2872C9C100A8C464 /* DashboardDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3714F83C2872C9C100A8C464 /* DashboardDelegateTests.swift */; };
 		3714F8402872D4A700A8C464 /* TransactionCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3714F83F2872D4A700A8C464 /* TransactionCellTests.swift */; };
+		3728E85228733BB900C60D06 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3728E85128733BB900C60D06 /* LoadingViewController.swift */; };
 		37454D75287073C40090C19D /* DashboardVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37454D74287073C40090C19D /* DashboardVCTests.swift */; };
 		37454D77287076B20090C19D /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37454D76287076B20090C19D /* DashboardViewController.xib */; };
 		37454D7C287078C60090C19D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37454D7A287078C60090C19D /* LoginViewController.swift */; };
@@ -27,7 +28,6 @@
 		37D97056286F1C3200D9AACF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D97055286F1C3200D9AACF /* AppDelegate.swift */; };
 		37D97058286F1C3200D9AACF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D97057286F1C3200D9AACF /* SceneDelegate.swift */; };
 		37D9705F286F1C3500D9AACF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37D9705E286F1C3500D9AACF /* Assets.xcassets */; };
-		37D9706D286F1C3500D9AACF /* OCBCTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D9706C286F1C3500D9AACF /* OCBCTestTests.swift */; };
 		37D97077286F1C3500D9AACF /* OCBCTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D97076286F1C3500D9AACF /* OCBCTestUITests.swift */; };
 		37D97079286F1C3500D9AACF /* OCBCTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D97078286F1C3500D9AACF /* OCBCTestUITestsLaunchTests.swift */; };
 		37D97093286F651500D9AACF /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D97092286F651500D9AACF /* Login.swift */; };
@@ -42,7 +42,7 @@
 		37D970B92870458D00D9AACF /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D970B82870458D00D9AACF /* ServerError.swift */; };
 		37E7C4372870502600FD7E30 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7C4362870502600FD7E30 /* DashboardViewModel.swift */; };
 		37E7C43C287067BC00FD7E30 /* DashboardViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7C43B287067BC00FD7E30 /* DashboardViewModelTests.swift */; };
-		37E7C43F28706CB300FD7E30 /* MockBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7C43D28706BAF00FD7E30 /* MockBalance.swift */; };
+		37E7C43F28706CB300FD7E30 /* MockingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7C43D28706BAF00FD7E30 /* MockingData.swift */; };
 		75857439F8EB7AAD75FBAD6A /* Pods_OCBCTest_OCBCTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E64E7DAABAFFEE5A64D1219 /* Pods_OCBCTest_OCBCTestUITests.framework */; };
 		76236B90EDF365024C6AF0AA /* Pods_OCBCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF544248CFC0801B1594747F /* Pods_OCBCTest.framework */; };
 		957C35F0D1E47096693AB6CE /* Pods_OCBCTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 274BF862D53145D26FEA0FFD /* Pods_OCBCTestTests.framework */; };
@@ -71,6 +71,7 @@
 		3714F83A2872BA9E00A8C464 /* DashboardDatasourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDatasourceTests.swift; sourceTree = "<group>"; };
 		3714F83C2872C9C100A8C464 /* DashboardDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDelegateTests.swift; sourceTree = "<group>"; };
 		3714F83F2872D4A700A8C464 /* TransactionCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCellTests.swift; sourceTree = "<group>"; };
+		3728E85128733BB900C60D06 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		37454D74287073C40090C19D /* DashboardVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVCTests.swift; sourceTree = "<group>"; };
 		37454D76287076B20090C19D /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		37454D7A287078C60090C19D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		37D9705E286F1C3500D9AACF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37D97063286F1C3500D9AACF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37D97068286F1C3500D9AACF /* OCBCTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCBCTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		37D9706C286F1C3500D9AACF /* OCBCTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCBCTestTests.swift; sourceTree = "<group>"; };
 		37D97072286F1C3500D9AACF /* OCBCTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCBCTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37D97076286F1C3500D9AACF /* OCBCTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCBCTestUITests.swift; sourceTree = "<group>"; };
 		37D97078286F1C3500D9AACF /* OCBCTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCBCTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 		37D970B82870458D00D9AACF /* ServerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
 		37E7C4362870502600FD7E30 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		37E7C43B287067BC00FD7E30 /* DashboardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModelTests.swift; sourceTree = "<group>"; };
-		37E7C43D28706BAF00FD7E30 /* MockBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBalance.swift; sourceTree = "<group>"; };
+		37E7C43D28706BAF00FD7E30 /* MockingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockingData.swift; sourceTree = "<group>"; };
 		49438854C45C5759DB94B278 /* Pods-OCBCTest-OCBCTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCBCTest-OCBCTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-OCBCTest-OCBCTestUITests/Pods-OCBCTest-OCBCTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4E5A99D7B049635525A5A141 /* Pods-OCBCTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCBCTest.release.xcconfig"; path = "Target Support Files/Pods-OCBCTest/Pods-OCBCTest.release.xcconfig"; sourceTree = "<group>"; };
 		65B41381894E351204FDC1DA /* Pods-OCBCTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCBCTest.debug.xcconfig"; path = "Target Support Files/Pods-OCBCTest/Pods-OCBCTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +174,22 @@
 				3714F83F2872D4A700A8C464 /* TransactionCellTests.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		3728E84D2873387200C60D06 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				37E7C43D28706BAF00FD7E30 /* MockingData.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		3728E85028733BAA00C60D06 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				3728E85128733BB900C60D06 /* LoadingViewController.swift */,
+			);
+			path = Loading;
 			sourceTree = "<group>";
 		};
 		37454D7E287086D80090C19D /* Spy */ = {
@@ -261,7 +277,7 @@
 		37D97054286F1C3200D9AACF /* OCBCTest */ = {
 			isa = PBXGroup;
 			children = (
-				37E7C43D28706BAF00FD7E30 /* MockBalance.swift */,
+				3728E84D2873387200C60D06 /* Helper */,
 				37D970AF286F7BD400D9AACF /* Constant */,
 				37D970AE286F7BCA00D9AACF /* Networking */,
 				37D9708B286F64D100D9AACF /* Screen */,
@@ -278,7 +294,6 @@
 				37454D7E287086D80090C19D /* Spy */,
 				37E7C43A2870679F00FD7E30 /* Dashboard */,
 				37D97094286F67EB00D9AACF /* Login */,
-				37D9706C286F1C3500D9AACF /* OCBCTestTests.swift */,
 			);
 			path = OCBCTestTests;
 			sourceTree = "<group>";
@@ -312,6 +327,7 @@
 		37D9708B286F64D100D9AACF /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				3728E85028733BAA00C60D06 /* Loading */,
 				37D970A6286F6E2900D9AACF /* Transaction */,
 				37D970A2286F6E0A00D9AACF /* Register */,
 				37D9708C286F64D800D9AACF /* Login */,
@@ -757,8 +773,9 @@
 				37D97058286F1C3200D9AACF /* SceneDelegate.swift in Sources */,
 				37454DA12872B32E0090C19D /* DashboardDatasource.swift in Sources */,
 				37454DA32872B6D70090C19D /* DashboardDelegate.swift in Sources */,
+				3728E85228733BB900C60D06 /* LoadingViewController.swift in Sources */,
 				37D970B1286F7BF000D9AACF /* Constant.swift in Sources */,
-				37E7C43F28706CB300FD7E30 /* MockBalance.swift in Sources */,
+				37E7C43F28706CB300FD7E30 /* MockingData.swift in Sources */,
 				37454D8C2870B1DC0090C19D /* TransactionCell.swift in Sources */,
 				37D9709D286F6C5800D9AACF /* DashboardViewController.swift in Sources */,
 				37D970B92870458D00D9AACF /* ServerError.swift in Sources */,
@@ -780,7 +797,6 @@
 				3714F83B2872BA9E00A8C464 /* DashboardDatasourceTests.swift in Sources */,
 				3714F83D2872C9C100A8C464 /* DashboardDelegateTests.swift in Sources */,
 				37454D75287073C40090C19D /* DashboardVCTests.swift in Sources */,
-				37D9706D286F1C3500D9AACF /* OCBCTestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

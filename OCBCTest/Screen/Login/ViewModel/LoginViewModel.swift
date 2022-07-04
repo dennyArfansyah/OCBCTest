@@ -30,12 +30,13 @@ class LoginViewModel {
             self.caller.passwordTextField.errorLabel.text = Constant.passwordRequired
             return
         }
-        
+        showLoadingView()
         doLogin(with: Login(username: username, password: password))
     }
     
     func doLogin(with data: Login) {
         self.service.doLogin(with: data, completion: { [weak self] result in
+            self?.hideLoadingView()
             switch result {
             case .success(let loginResponse):
                 print(loginResponse)
@@ -46,7 +47,21 @@ class LoginViewModel {
         })
     }
     
+    func showLoadingView() {
+        let loadingVC = LoadingViewController()
+        loadingVC.modalPresentationStyle = .overCurrentContext
+        loadingVC.modalTransitionStyle = .crossDissolve
+        self.caller.present(loadingVC, animated: true, completion: nil)
+    }
+    
+    func hideLoadingView() {
+        DispatchQueue.main.async {
+            self.caller.dismiss(animated: true)
+        }
+    }
+    
     func set(with loginResponse: LoginRespons) {
+        UserDefaults.standard.setValue(loginResponse.token, forKey: Constant.token)
         self.caller.usernameTextField.text = ""
         self.caller.usernameTextField.isErrorRevealed = false
         self.caller.usernameTextField.errorLabel.text = ""

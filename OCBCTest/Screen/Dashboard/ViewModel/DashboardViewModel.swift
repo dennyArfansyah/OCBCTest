@@ -18,14 +18,12 @@ class DashboardViewModel {
     init(caller: DashboardViewController, service: DashboardService = DashboardServiceImplementation()) {
         self.caller = caller
         self.service = service
-        self.getBalance()
-        self.getTransactions()
     }
     
     func getBalance() {
-//        DispatchQueue.main.async {
-//            self.caller.activityIndicatroView.startAnimating()
-//        }
+        DispatchQueue.main.async {
+            self.caller.activityIndicatroView.startAnimating()
+        }
         self.service.fetchBalance(completion: { [weak self] result in
             DispatchQueue.main.async {
                 self?.caller.activityIndicatroView.stopAnimating()

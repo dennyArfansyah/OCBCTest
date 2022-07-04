@@ -35,6 +35,9 @@ class DashboardViewController: UIViewController {
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.sectionFooterHeight = 8
         self.tableView.sectionHeaderHeight = 50
+        
+        viewModel.getBalance()
+        viewModel.getTransactions()
     }
     
 }
@@ -43,6 +46,7 @@ class DashboardViewController: UIViewController {
 extension DashboardViewController {
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
+        UserDefaults.standard.setValue("", forKey: Constant.token)
         navigationController?.popViewController(animated: true)
     }
     
